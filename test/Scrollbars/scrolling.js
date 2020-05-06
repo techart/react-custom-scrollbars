@@ -26,9 +26,9 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                     this.scrollLeft(50);
                     setTimeout(() => {
                         if (scrollbarWidth) {
-                            // 50 / (200 - 100) * (96 - 48) = 24
-                            expect(this.thumbVertical.style.transform).toEqual('translateY(24px)');
-                            expect(this.thumbHorizontal.style.transform).toEqual('translateX(24px)');
+                            // 50 / (200 - 100 - 1) * (96 - 48 - 1) = 23.7374
+                            expect(this.thumbVertical.style.transform).toEqual('translateY(23.7374px)');
+                            expect(this.thumbHorizontal.style.transform).toEqual('translateX(23.7374px)');
                         } else {
                             expect(this.thumbVertical.style.transform).toEqual('');
                             expect(this.thumbHorizontal.style.transform).toEqual('');
@@ -86,14 +86,14 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
 
                         if (scrollbarWidth) {
                             expect(values).toEqual({
-                                left: 0.5,
+                                left: 0.5050505050505051,
                                 top: 0,
                                 scrollLeft: 50,
                                 scrollTop: 0,
                                 scrollWidth: 200,
                                 scrollHeight: 200,
-                                clientWidth: 100,
-                                clientHeight: 100
+                                clientWidth: 101,
+                                clientHeight: 101
                             });
                         } else {
                             expect(values).toEqual({
@@ -103,8 +103,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                                 scrollTop: 0,
                                 scrollWidth: 200,
                                 scrollHeight: 200,
-                                clientWidth: 100 - envScrollbarWidth,
-                                clientHeight: 100 - envScrollbarWidth
+                                clientWidth: 100 - envScrollbarWidth + 1,
+                                clientHeight: 100 - envScrollbarWidth + 1
                             });
                         }
                         done();
@@ -186,13 +186,13 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                         if (scrollbarWidth) {
                             expect(values).toEqual({
                                 left: 0,
-                                top: 0.5,
+                                top: 0.5050505050505051,
                                 scrollLeft: 0,
                                 scrollTop: 50,
                                 scrollWidth: 200,
                                 scrollHeight: 200,
-                                clientWidth: 100,
-                                clientHeight: 100,
+                                clientWidth: 101,
+                                clientHeight: 101,
                             });
                         } else {
                             expect(values).toEqual({
@@ -202,8 +202,8 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                                 scrollTop: 50,
                                 scrollWidth: 200,
                                 scrollHeight: 200,
-                                clientWidth: 100 - envScrollbarWidth,
-                                clientHeight: 100 - envScrollbarWidth,
+                                clientWidth: 100 - envScrollbarWidth + 1,
+                                clientHeight: 100 - envScrollbarWidth + 1,
                             });
                         }
                         done();

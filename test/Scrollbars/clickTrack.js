@@ -31,7 +31,7 @@ export default function createTests(scrollbarWidth) {
                         target: bar,
                         clientX: left + (width / 2)
                     });
-                    expect(view.scrollLeft).toEqual(50);
+                    expect(view.scrollLeft).toEqual(49);
                     done();
                 }, 100);
             });
@@ -52,7 +52,7 @@ export default function createTests(scrollbarWidth) {
                         target: bar,
                         clientY: top + (height / 2)
                     });
-                    expect(view.scrollTop).toEqual(50);
+                    expect(view.scrollTop).toEqual(49);
                     done();
                 }, 100);
             });
