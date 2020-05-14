@@ -84,7 +84,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                 ), node, function callback() {
                     setTimeout(() => {
                         const scrollbars = findDOMNode(this);
-                        expect(scrollbars.clientHeight).toEqual(50 + (envScrollbarWidth - scrollbarWidth));
+                        expect(scrollbars.clientHeight).toEqual(50 + (envScrollbarWidth - scrollbarWidth) - 1);
                         expect(this.view.clientHeight).toEqual(50);
                         expect(this.view.scrollHeight).toEqual(50);
                         expect(this.thumbVertical.clientHeight).toEqual(0);
@@ -106,11 +106,11 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                     setTimeout(() => {
                         const scrollbars = findDOMNode(this);
                         expect(scrollbars.clientHeight).toEqual(100);
-                        expect(this.view.clientHeight).toEqual(100 - (envScrollbarWidth - scrollbarWidth));
+                        expect(this.view.clientHeight).toEqual(100 - (envScrollbarWidth - scrollbarWidth) + 1);
                         expect(this.view.scrollHeight).toEqual(200);
                         if (scrollbarWidth) {
-                            // 100 / 200 * 96 = 48
-                            expect(this.thumbVertical.clientHeight).toEqual(48);
+                            // 100 / 200 * 96 + 1 = 49
+                            expect(this.thumbVertical.clientHeight).toEqual(49);
                         }
                         done();
                     }, 100);
@@ -131,7 +131,7 @@ export default function createTests(scrollbarWidth, envScrollbarWidth) {
                     setTimeout(() => {
                         const scrollbars = findDOMNode(this);
                         expect(scrollbars.clientHeight).toEqual(100);
-                        expect(this.view.clientHeight).toEqual(100 - (envScrollbarWidth - scrollbarWidth));
+                        expect(this.view.clientHeight).toEqual(100 - (envScrollbarWidth - scrollbarWidth) + 1);
                         expect(this.thumbVertical.clientHeight).toEqual(0);
                         done();
                     }, 100);

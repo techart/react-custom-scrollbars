@@ -34,7 +34,7 @@ export default function createTests(scrollbarWidth) {
                         clientX: left + 100
                     });
                     simulant.fire(document, 'mouseup');
-                    expect(view.scrollLeft).toEqual(100);
+                    expect(view.scrollLeft).toEqual(99);
                     done();
                 }, 100);
             });
@@ -80,7 +80,7 @@ export default function createTests(scrollbarWidth) {
                         clientY: top + 100
                     });
                     simulant.fire(document, 'mouseup');
-                    expect(view.scrollTop).toEqual(100);
+                    expect(view.scrollTop).toEqual(99);
                     done();
                 }, 100);
             });

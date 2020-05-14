@@ -133,8 +133,8 @@ export default function createTests(scrollbarWidth) {
                     ), node, function callback() {
                         setTimeout(() => {
                             // 100 / 200 * 96 = 48
-                            expect(this.thumbVertical.style.height).toEqual('48px');
-                            expect(this.thumbHorizontal.style.width).toEqual('48px');
+                            expect(this.thumbVertical.style.height).toEqual('49px');
+                            expect(this.thumbHorizontal.style.width).toEqual('49px');
                             done();
                         }, 100);
                     });
